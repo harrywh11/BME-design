@@ -1,0 +1,29 @@
+
+int voltage = 0;
+float location = 0;
+float angle = 0.0;
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+}
+
+void loop() {
+  // The digital read out 300-700?
+  voltage = analogRead(A0);
+  // converter here
+  angle1 = voltage * ???
+  
+  Serial.println(voltage);
+  // wait for 1 given time to see change
+  delay(100);
+  voltage = analogRead(A0);
+  angle2 = voltage * ???
+  float diff = angle2-angle1;
+  if (angle2-angle1>180){
+    diff = 360-angle2+angle1;
+  }
+  if (angle1-angle2<-180){
+    diff = -(360-angle2+angle1);
+  }
+  location = location + diff;
+}
